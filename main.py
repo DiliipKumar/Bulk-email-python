@@ -35,6 +35,10 @@ Dilip Kumar
 with open('mails.csv', 'r') as csvfile:
     datareader = csv.reader(csvfile)
     for row in datareader:
+        # Skip empty rows
+        if not row or len(row) < 1:
+            continue
+        
         random_user = random.choice(data)
         sender = random_user[0]
         password = random_user[1]
